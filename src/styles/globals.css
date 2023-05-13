@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius-buttons: 6px;
+  /* radius for dropdowns, cards, images, anything that is card */
+  --radius-cards: 8px;
+
+  /* 80% */
+  --primary-light: #ffffff;
+  --primary-dark: #252629;
+
+  /* surface color */
+  --secondary-light: #f3f3f9;
+  --secondary-dark: #1c1d1f;
+
+  /* main headings, titles, very important, needs much focus */
+  --text-primary-light: #434345;
+  --text-primary-dark: #e7e8eb;
+
+  /* everything that is not heading, title, focused, or important but not as title */
+  --text-secondary-light: #495057;
+  --text-secondary-dark: #ced4da;
+
+  /* everything that is unfocused, muted, disabled, less important */
+  --text-muted-light: #878a99;
+  --text-muted-dark: #878a99;
+
+  /* main, brand, accent color */
+  --accent-light: #5c87fd;
+  --accent-dark: #5c87fd;
+
+  /* borders, dividers, lines color */
+  --border-light: #e0e0e0;
+  --border-dark: #424242;
+
+  /* selection background and text color */
+  --sel-foreground: var(--primary-light);
+  --sel-background: var(--accent-light);
+}
+
+/* Text Selection And Selected Text Background Color */
+*::selection {
+  color: var(--sel-foreground);
+  background: var(--sel-background);
+}
+
+*::-moz-selection {
+  color: var(--sel-foreground);
+  background: var(--sel-background);
+}
+
+*::-webkit-selection {
+  color: var(--sel-foreground);
+  background: var(--sel-background);
+}

@@ -1,0 +1,14 @@
+dist
+temp
+.temp
+.next
+public
+content
+.vscode
+.vercel
+yarn.lock
+node_modules
+next-env.d.ts
+.contentlayer
+pnpn-lock.yaml
+packge-lock.json
