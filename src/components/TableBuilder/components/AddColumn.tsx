@@ -1,10 +1,10 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
+import { Chip } from "@/components/ui/Chip";
 import { Input } from "@/components/ui/Input";
-import { Select } from "@/components/ui/Select";
-import { useState } from "react";
-
 import {
+  Select,
   SelectContent,
   SelectGroup,
   SelectItem,
@@ -12,32 +12,27 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/Select";
+import { useState } from "react";
 import { BsTextareaT } from "react-icons/bs";
-import { HiOutlineCalendarDays, HiOutlineDocument } from "react-icons/hi2";
+import { HiOutlineKey, HiOutlineSparkles } from "react-icons/hi";
+import { HiOutlineCalendarDays, HiOutlineCheckBadge, HiOutlineDocument } from "react-icons/hi2";
 import { MdNumbers } from "react-icons/md";
 import { RxSwitch } from "react-icons/rx";
 import { VscJson } from "react-icons/vsc";
-
-interface columnData {
-  name?: string;
-  type?: string;
-  length?: number;
-  group?: string;
-  scale?: number;
-  primary?: boolean;
-  unique?: boolean;
-  required?: boolean;
-  precision?: number;
-  default?: string;
-  autoGenerateUUID?: boolean;
-  autoIncrementNumberBy?: number;
-}
+import useTableBuilder, { IColumnDef } from "../hooks/use-tableBuilder";
+import { SQL_DATATYPES, getDataTypeGroup } from "../utils/utils";
 
 const AddColumn = () => {
-  const [values, setValues] = useState<columnData>({});
+  const [values, setValues] = useState<IColumnDef>({ name: "" });
+
+  const addColumn = useTableBuilder((state) => state.addColumn);
+
+  const handleAddColumn = () => {
+    addColumn(values);
+  };
 
   return (
-    <>
+    <div className="flex items-center gap-x-4 px-2">
       <div className="space-y-2">
         <label
           htmlFor="new-column-name"
@@ -61,12 +56,12 @@ const AddColumn = () => {
         <Select
           value={values.type}
           onValueChange={(v) => setValues({ ...values, type: v, group: getDataTypeGroup(v) })}>
-          <SelectTrigger className="w-40 md:w-full">
+          <SelectTrigger className="w-52 md:w-full">
             <SelectValue placeholder="data type" />
           </SelectTrigger>
 
-          <SelectContent>
-            {Object.entries(sqlDatatypes).map(([group, datatypes]) => (
+          <SelectContent className="z-[100]">
+            {Object.entries(SQL_DATATYPES).map(([group, datatypes]) => (
               <SelectGroup key={group}>
                 <SelectLabel className="mb-2 flex items-center gap-x-2 border-b-1 border-border-light font-bold capitalize dark:border-border-dark">
                   {group === "numbers" && <MdNumbers />}
@@ -88,49 +83,51 @@ const AddColumn = () => {
           </SelectContent>
         </Select>
       </div>
-    </>
+
+      <div className="flex flex-col gap-y-2">
+        <label className="text-sm text-color-muted-light dark:text-color-muted-dark">Primary</label>
+
+        <Chip
+          onClick={() => setValues({ ...values, primary: !values.primary })}
+          className="flex items-center gap-x-2 px-3">
+          <HiOutlineKey />
+          Primary
+        </Chip>
+      </div>
+
+      <div className="flex flex-col  gap-y-2">
+        <label className="text-sm text-color-muted-light dark:text-color-muted-dark">
+          Required
+        </label>
+
+        <Chip
+          onClick={() => setValues({ ...values, required: !values.required })}
+          className="flex items-center gap-x-2 px-3">
+          <HiOutlineCheckBadge />
+          Required
+        </Chip>
+      </div>
+
+      <div className="flex flex-col  gap-y-2">
+        <label className="text-sm text-color-muted-light dark:text-color-muted-dark">Unique</label>
+
+        <Chip
+          onClick={() => setValues({ ...values, unique: !values.unique })}
+          className="flex items-center gap-x-2 px-3">
+          <HiOutlineSparkles />
+          Unique
+        </Chip>
+      </div>
+
+      <div className="flex flex-col  gap-y-2">
+        <label className="text-sm text-color-muted-light dark:text-color-muted-dark">Action</label>
+        <Button
+          onClick={handleAddColumn}
+          className="bg-accent-light px-8 text-primary-light dark:bg-accent-dark dark:text-primary-dark">
+          Add Column
+        </Button>
+      </div>
+    </div>
   );
 };
 export default AddColumn;
-
-const sqlDatatypes = {
-  numbers: [
-    { name: "integer" },
-    { name: "smallint" },
-    { name: "bigint" },
-    { name: "decimal" },
-    { name: "numeric" },
-    { name: "float" },
-    { name: "real" },
-    { name: "double" },
-  ],
-  strings: [
-    //
-    { name: "char" },
-    { name: "varchar" },
-    { name: "text" },
-  ],
-  datetime: [
-    //
-    { name: "date" },
-    { name: "time" },
-    { name: "timestamp" },
-  ],
-  boolean: [
-    //
-    { name: "boolean" },
-    { name: "tinyint(1)" },
-  ],
-  json: [{ name: "json" }],
-  others: [{ name: "uuid" }],
-};
-
-type DataTypeGroup = keyof typeof sqlDatatypes;
-function getDataTypeGroup(datatype: string): DataTypeGroup | string {
-  for (const group of Object.keys(sqlDatatypes) as DataTypeGroup[]) {
-    if (sqlDatatypes[group].some((dt) => dt.name.toLowerCase() === datatype.toLowerCase())) {
-      return group;
-    }
-  }
-  return "";
-}

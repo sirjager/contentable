@@ -1,9 +1,8 @@
 "use client";
 
 import { IconButton } from "@/components/ui/IconButton";
-import { classes } from "@/lib/constants";
+import { Link } from "@/components/ui/Link";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiChevronRight, HiOutlineMinus } from "react-icons/hi";
 import { useAppShell } from "../AppShellProvider";
@@ -17,20 +16,21 @@ const MenuItem = ({ group, level = 1 }: { group: MenuGroup; level?: number }) =>
   if (!mounted) return null;
 
   return (
-    <div className="p-1">
+    <>
       <div
         className={cn(
-          "flex items-center gap-x-3 h-10 rounded-buttons",
+          "flex h-10 items-center gap-x-3 rounded-buttons",
           "bg-primary-light dark:bg-primary-dark",
-          "text-color-muted-light dark:text-color-muted-dark hover:text-color-secondary-light dark:hover:text-color-secondary-dark",
+          "text-color-muted-light hover:text-color-secondary-light dark:text-color-muted-dark dark:hover:text-color-secondary-dark",
           {
             "text-color-primary-light dark:text-color-primary-dark": isOpened(group.name),
           },
         )}>
         <Link
           href={group.href || "#"}
-          className={cn("flex w-full h-full items-center gap-x-3", classes.focus, {
-            "w-full ml-1": mounted && view === "full",
+          target="_parent"
+          className={cn("flex h-full w-full items-center gap-x-3", {
+            "ml-1 w-full": mounted && view === "full",
             "justify-center": view !== "full",
           })}
           style={{
@@ -61,7 +61,7 @@ const MenuItem = ({ group, level = 1 }: { group: MenuGroup; level?: number }) =>
       {mounted && view === "full" && group.items && group.items.length > 0 && (
         <div
           className={cn(
-            "w-full overflow-clip bg-primary-light dark:bg-primary-dark",
+            "w-full space-y-2 overflow-clip bg-primary-light p-1 dark:bg-primary-dark",
             "text-color-muted-light dark:text-color-muted-dark",
             {
               hidden: !isOpened(group.name),
@@ -72,7 +72,7 @@ const MenuItem = ({ group, level = 1 }: { group: MenuGroup; level?: number }) =>
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 };
 export default MenuItem;

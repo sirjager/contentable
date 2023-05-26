@@ -23,8 +23,7 @@ const SelectTrigger = React.forwardRef<
       "focus:ring-accent dark:focus:ring-accent focus:rounded-buttons focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-900",
       className,
     )}
-    {...props}
-  >
+    {...props}>
     {children}
     <HiOutlineChevronDown className="h-4 w-4 opacity-50" />
   </SelectPrimitive.Trigger>
@@ -42,8 +41,7 @@ const SelectContent = React.forwardRef<
         "animate-in fade-in-80 relative z-50 min-w-[8rem] overflow-hidden rounded-buttons border border-border-light bg-primary-light text-color-secondary-light shadow-md dark:border-border-dark dark:bg-primary-dark dark:text-color-secondary-dark",
         className,
       )}
-      {...props}
-    >
+      {...props}>
       <SelectPrimitive.Viewport className="p-1">{children}</SelectPrimitive.Viewport>
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
@@ -75,8 +73,7 @@ const SelectItem = React.forwardRef<
       "relative flex cursor-pointer select-none items-center rounded-buttons py-1.5 pl-8 pr-2 text-sm font-medium outline-none focus:bg-secondary-light data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-secondary-dark",
       className,
     )}
-    {...props}
-  >
+    {...props}>
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
         <HiOutlineCheck className="text-xl" />

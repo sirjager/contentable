@@ -5,7 +5,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head />
-      <body className="bg-secondary-light antialiased dark:bg-secondary-dark overflow-clip">
+      <body className="bg-secondary-light antialiased dark:bg-secondary-dark">
         <ThemeProvider>
           {/*  */}
           {children}

@@ -13,8 +13,7 @@ export function ToggleDarkMode() {
   return (
     <IconButton
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      aria-label="Toggle dark mode"
-    >
+      aria-label="Toggle dark mode">
       {!mounted ? <BsSunrise /> : theme === "dark" ? <BiMoon /> : <BiSun />}
     </IconButton>
   );

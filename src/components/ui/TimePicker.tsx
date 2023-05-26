@@ -24,8 +24,7 @@ const TimePicker = () => {
         <Button
           onClick={() => setValue({ ...value, ispm: !value.ispm })}
           className="px-3 uppercase"
-          variant="outline"
-        >
+          variant="outline">
           {value.ispm ? "pm" : "am"}
         </Button>
       )}

@@ -11,8 +11,7 @@ export const getDarkColorFrom = (hexColor: string, darkenByPercent: number) => {
   // validate hexColor string
   hexColor = String(hexColor).replace(/[^0-9a-f]/gi, "");
   if (hexColor.length < 6) {
-    hexColor =
-      hexColor[0] + hexColor[0] + hexColor[1] + hexColor[1] + hexColor[2] + hexColor[2];
+    hexColor = hexColor[0] + hexColor[0] + hexColor[1] + hexColor[1] + hexColor[2] + hexColor[2];
   }
   darkenByPercent = darkenByPercent || 0;
 

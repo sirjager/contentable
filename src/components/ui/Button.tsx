@@ -4,7 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "rounded-buttons text-sm active:scale-95 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-offset-2 disabled:opacity-50 dark:focus:ring-accent-dark disabled:pointer-events-none dark:focus:ring-offset-slate-900 data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800",
+  "select-none rounded-buttons text-sm active:scale-95 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-offset-2 disabled:opacity-50 dark:focus:ring-accent-dark disabled:pointer-events-none dark:focus:ring-offset-slate-900 data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800",
   {
     variants: {
       variant: {
@@ -17,8 +17,7 @@ const buttonVariants = cva(
         ghost:
           "bg-transparent hover:bg-secondary-light dark:hover:bg-secondary-dark dark:text-color-secondary-light dark:text-color-secondary-dark data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent",
         link: "border border-border-light dark:border-border-dark drop-shadow-sm shadow-sm dark:shadow-black bg-primary-light dark:bg-primary-dark text-color-muted-light dark:text-color-muted-dark hover:text-color-secondary-light dark:hover:text-color-secondary-dark focus:text-color-secondary-light dark:focus:text-color-secondary-dark",
-        accent:
-          "bg-accent font-bold dark:bg-accent text-primary-light dark:text-primary-dark",
+        accent: "bg-accent font-bold dark:bg-accent text-primary-light dark:text-primary-dark",
       },
       size: {
         xs: "h-6 px-2",
@@ -42,11 +41,7 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
     return (
-      <button
-        className={cn(buttonVariants({ size, variant, className }))}
-        ref={ref}
-        {...props}
-      />
+      <button className={cn(buttonVariants({ size, variant, className }))} ref={ref} {...props} />
     );
   },
 );

@@ -4,7 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const chipVariants = cva(
-  "rounded-buttons text-color-secondary-light dark:text-color-secondary-dark text-sm inline-flex items-center justify-center disabled:opacity-50 disabled:pointer-events-none focus: focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-900",
+  "select-none rounded-buttons text-color-secondary-light dark:text-color-secondary-dark text-sm inline-flex items-center justify-center disabled:opacity-50 disabled:pointer-events-none focus: focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-900",
   {
     variants: {
       variant: {
@@ -60,11 +60,7 @@ export interface ChipProps
 const Chip = React.forwardRef<HTMLButtonElement, ChipProps>(
   ({ className, variant, size, ...props }, ref) => {
     return (
-      <button
-        className={cn(chipVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
+      <button className={cn(chipVariants({ variant, size, className }))} ref={ref} {...props} />
     );
   },
 );

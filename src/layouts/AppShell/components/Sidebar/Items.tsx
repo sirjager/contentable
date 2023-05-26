@@ -16,18 +16,15 @@ export const SidebarItems: MenuGroup[] = [
   {
     name: "Dashboard",
     icon: <TbDashboard />,
-    href: "/dashboard",
   },
   {
     name: "Tables",
     icon: <RxTable />,
-    href: "/dashboard/tables",
     items: [],
   },
   {
     icon: <TbTableOptions />,
     name: "Builder",
-    href: "/dashboard/builder",
     items: [
       {
         name: "Table Builder",
@@ -36,31 +33,245 @@ export const SidebarItems: MenuGroup[] = [
       },
     ],
   },
-
   {
     name: "Apps",
     icon: <RiAppsLine />,
-    href: "/dashboard/apps",
     items: [
       {
         icon: <HiOutlineCalendarDays />,
         name: "Calendar",
-        href: "/dashboard/apps/calendar",
       },
       {
         icon: <TbLayoutKanban />,
         name: "Kanban",
-        href: "/dashboard/apps/kanban",
       },
       {
         icon: <HiOutlineMail />,
         name: "Emails",
-        href: "/dashboard/apps/emails",
       },
       {
         icon: <TfiGallery />,
         name: "File Manager",
-        href: "/dashboard/apps/filemanager",
+      },
+    ],
+  },
+  {
+    name: "Apps",
+    icon: <RiAppsLine />,
+    items: [
+      {
+        icon: <HiOutlineCalendarDays />,
+        name: "Calendar",
+      },
+      {
+        icon: <TbLayoutKanban />,
+        name: "Kanban",
+      },
+      {
+        icon: <HiOutlineMail />,
+        name: "Emails",
+      },
+      {
+        icon: <TfiGallery />,
+        name: "File Manager",
+      },
+    ],
+  },
+  {
+    name: "Apps",
+    icon: <RiAppsLine />,
+    items: [
+      {
+        icon: <HiOutlineCalendarDays />,
+        name: "Calendar",
+      },
+      {
+        icon: <TbLayoutKanban />,
+        name: "Kanban",
+      },
+      {
+        icon: <HiOutlineMail />,
+        name: "Emails",
+      },
+      {
+        icon: <TfiGallery />,
+        name: "File Manager",
+      },
+    ],
+  },
+  {
+    name: "Apps",
+    icon: <RiAppsLine />,
+    items: [
+      {
+        icon: <HiOutlineCalendarDays />,
+        name: "Calendar",
+      },
+      {
+        icon: <TbLayoutKanban />,
+        name: "Kanban",
+      },
+      {
+        icon: <HiOutlineMail />,
+        name: "Emails",
+      },
+      {
+        icon: <TfiGallery />,
+        name: "File Manager",
+      },
+    ],
+  },
+  {
+    name: "Apps",
+    icon: <RiAppsLine />,
+    items: [
+      {
+        icon: <HiOutlineCalendarDays />,
+        name: "Calendar",
+      },
+      {
+        icon: <TbLayoutKanban />,
+        name: "Kanban",
+      },
+      {
+        icon: <HiOutlineMail />,
+        name: "Emails",
+      },
+      {
+        icon: <TfiGallery />,
+        name: "File Manager",
+      },
+    ],
+  },
+  {
+    name: "Apps",
+    icon: <RiAppsLine />,
+    items: [
+      {
+        icon: <HiOutlineCalendarDays />,
+        name: "Calendar",
+      },
+      {
+        icon: <TbLayoutKanban />,
+        name: "Kanban",
+      },
+      {
+        icon: <HiOutlineMail />,
+        name: "Emails",
+      },
+      {
+        icon: <TfiGallery />,
+        name: "File Manager",
+      },
+    ],
+  },
+  {
+    name: "Apps",
+    icon: <RiAppsLine />,
+    items: [
+      {
+        icon: <HiOutlineCalendarDays />,
+        name: "Calendar",
+      },
+      {
+        icon: <TbLayoutKanban />,
+        name: "Kanban",
+      },
+      {
+        icon: <HiOutlineMail />,
+        name: "Emails",
+      },
+      {
+        icon: <TfiGallery />,
+        name: "File Manager",
+      },
+    ],
+  },
+  {
+    name: "Apps",
+    icon: <RiAppsLine />,
+    items: [
+      {
+        icon: <HiOutlineCalendarDays />,
+        name: "Calendar",
+      },
+      {
+        icon: <TbLayoutKanban />,
+        name: "Kanban",
+      },
+      {
+        icon: <HiOutlineMail />,
+        name: "Emails",
+      },
+      {
+        icon: <TfiGallery />,
+        name: "File Manager",
+      },
+    ],
+  },
+  {
+    name: "Apps",
+    icon: <RiAppsLine />,
+    items: [
+      {
+        icon: <HiOutlineCalendarDays />,
+        name: "Calendar",
+      },
+      {
+        icon: <TbLayoutKanban />,
+        name: "Kanban",
+      },
+      {
+        icon: <HiOutlineMail />,
+        name: "Emails",
+      },
+      {
+        icon: <TfiGallery />,
+        name: "File Manager",
+      },
+    ],
+  },
+  {
+    name: "Apps",
+    icon: <RiAppsLine />,
+    items: [
+      {
+        icon: <HiOutlineCalendarDays />,
+        name: "Calendar",
+      },
+      {
+        icon: <TbLayoutKanban />,
+        name: "Kanban",
+      },
+      {
+        icon: <HiOutlineMail />,
+        name: "Emails",
+      },
+      {
+        icon: <TfiGallery />,
+        name: "File Manager",
+      },
+    ],
+  },
+  {
+    name: "Apps",
+    icon: <RiAppsLine />,
+    items: [
+      {
+        icon: <HiOutlineCalendarDays />,
+        name: "Calendar",
+      },
+      {
+        icon: <TbLayoutKanban />,
+        name: "Kanban",
+      },
+      {
+        icon: <HiOutlineMail />,
+        name: "Emails",
+      },
+      {
+        icon: <TfiGallery />,
+        name: "File Manager",
       },
     ],
   },

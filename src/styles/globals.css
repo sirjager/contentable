@@ -55,3 +55,19 @@
   color: var(--sel-foreground);
   background: var(--sel-background);
 }
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: rgba(70, 71, 87, 0.507);
+  background-clip: content-box;
+}

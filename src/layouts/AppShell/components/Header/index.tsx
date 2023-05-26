@@ -1,32 +1,31 @@
-import { ToggleDarkMode } from "@/components/ToggleDarkMode";
-import { cn } from "@/lib/utils";
-import { HamburgerMenu } from "./Hamburger";
-import AppLogo from "./Logo";
-import NotificationIcon from "./NotificationIcon";
-import UserProfile from "./UserProfile";
+"use client";
 
-const Header = () => {
+import { ToggleDarkMode } from "@/components/ToggleDarkMode";
+import { IconButton } from "@/components/ui/IconButton";
+import { cn } from "@/lib/utils";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useAppShell } from "../AppShellProvider";
+
+const HeaderComponent = () => {
+  const { toggle } = useAppShell();
   return (
     <header
       className={cn(
-        "h-16 min-h-[64px] max-h-[64px] sticky top-0 z-50 w-full bg-primary-light dark:bg-primary-dark",
-        "flex items-center justify-between border-b-1 border-border-light dark:border-border-dark px-4 shadow-md",
+        "z-[99] flex h-16 min-h-[64px] w-full items-center px-4",
+        "border-b border-border-light bg-primary-light dark:border-border-dark dark:bg-primary-dark",
       )}>
-      <div className="flex items-center gap-x-4">
-        <div className="flex w-full min-w-[198px] max-w-[198px] items-center gap-x-4">
-          <HamburgerMenu />
-          <AppLogo />
+      <div className="flex w-full items-center justify-between">
+        <div className="flex items-center justify-start gap-x-2">
+          <IconButton onClick={() => toggle()}>
+            <RxHamburgerMenu />
+          </IconButton>
         </div>
-      </div>
 
-      <div className="flex w-full flex-grow items-center justify-end gap-x-4">
-        <span className="hidden sm:inline">
+        <div className="flex items-center justify-end gap-x-2">
           <ToggleDarkMode />
-        </span>
-        <NotificationIcon />
-        <UserProfile />
+        </div>
       </div>
     </header>
   );
 };
-export default Header;
+export default HeaderComponent;
